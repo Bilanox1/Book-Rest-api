@@ -8,6 +8,20 @@ const app = express();
 dotenv.config();
 dbConection();
 
+const checkReferer = (req, res, next) => {
+  const referer = req.get("Referer");
+  console.log(referer);
+  
+  if (referer && referer.startsWith("https://bilal-ez-zaim.github.io")) {
+    next(); 
+  } else {
+    res.status(403).json({ message: "Forbidden" }); 
+  }
+};
+
+
+app.use("/api", checkReferer);
+
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -15,8 +29,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
-
-
 
 app.use(
   cors({
