@@ -10,7 +10,6 @@ dbConection();
 
 const checkReferer = (req, res, next) => {
   const referer = req.get("Referer");
-  console.log(referer);
   
   if (referer && referer.startsWith("https://bilal-ez-zaim.github.io")) {
     next(); 
