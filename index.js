@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 
 app.use(
   cors({
-    origin: "https://bilal-ez-zaim.github.io/book-Api1",
+    origin: "https://bilal-ez-zaim.github.io",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
