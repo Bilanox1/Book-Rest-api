@@ -16,15 +16,11 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-app.use(
-  cors({
-    origin: "https://bilal-ez-zaim.github.io/book-Api1/",
-  })
-);
+
 
 app.use(
   cors({
-    origin: "https://bilal-ez-zaim.github.io/book-Api1/",
+    origin: "https://bilal-ez-zaim.github.io/book-Api1",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
